@@ -7,6 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Data.Entity;
 using System.Reflection.Metadata;
+using Microsoft.AspNetCore.Cors.Infrastructure;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using ArchivadorALPU.Repositories.Services;
 
 internal class Program
 {
@@ -17,7 +20,20 @@ internal class Program
         builder.Services.AddMvc(options =>
         {
             options.SuppressAsyncSuffixInActionNames = false;
+
         });
+
+        const string corsPolicyName = "ApiCORS";
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(corsPolicyName, policy =>
+            {
+                policy.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+            });
+        });
+
+
         builder.Services.AddHttpContextAccessor();
         // Add services to the container.
         builder.Services.AddControllers();
@@ -25,6 +41,10 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddScoped<IContratoRepository, ContratoRepository>();
+        builder.Services.AddScoped<ILocutorRepository, LocutorRespository>();
+        builder.Services.AddScoped<IAgenciaRepository, AgenciaRepository>();
+        builder.Services.AddScoped<IPagosRepository, PagosRepository>();
+        builder.Services.AddTransient<PlanillaService, PlanillaService>();
 
         builder.Services.AddDbContext<Context>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -40,6 +60,9 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
+        app.UseCors(corsPolicyName);
+        app.UseRouting();
+        app.UseStaticFiles();
 
         app.UseAuthorization();
 

@@ -3140,11 +3140,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nico_\\localsource\\ArchivadorALPU\\Classes\\Classes.csproj",
+      "projectUniqueName": "C:\\Users\\nico_\\Source\\Repos\\ContratosALPU\\Classes\\Classes.csproj",
       "projectName": "Classes",
-      "projectPath": "C:\\Users\\nico_\\localsource\\ArchivadorALPU\\Classes\\Classes.csproj",
+      "projectPath": "C:\\Users\\nico_\\Source\\Repos\\ContratosALPU\\Classes\\Classes.csproj",
       "packagesPath": "C:\\Users\\nico_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nico_\\localsource\\ArchivadorALPU\\Classes\\obj\\",
+      "outputPath": "C:\\Users\\nico_\\Source\\Repos\\ContratosALPU\\Classes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3159,6 +3159,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

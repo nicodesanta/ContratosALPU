@@ -1,13 +1,56 @@
-body {
+.body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #18191a;
+  min-height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.tableStyle{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  background-color: #E4E6EB;
+  border: 1px solid black
+}
+
+.whiteFont{
+  color: #FFFF;
+}
+
+.MuiDataGrid-columnHeader{
+  background-color: #3A3B3C;
+  color: #FFFF;
+}
+
+.MuiButtonBase-root {
+  color: #FFFF;
+  background-color: #18191a;
+}
+
+.MuiDataGrid-row{
+  color: #18191a;
+}
+
+.navbarColor{
+  background-color: #b3b3b3;
+}
+
+.nombreAgenciaCell{
+cursor:pointer
+}
+
+.nombreLocutorCell{
+  cursor:pointer
+}
+
+.MuiInputBase-root {
+  background: white;
+}
+

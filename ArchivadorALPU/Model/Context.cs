@@ -1,8 +1,10 @@
 ﻿using Classes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics.Metrics;
 using System.Reflection.Metadata;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 
@@ -17,14 +19,27 @@ public class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("server=.; database=GastroDB; user id=sa; password=123;");
+        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=alpuserver;Trusted_Connection=True");
+        
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-       
-       
+
+        modelBuilder.Entity<Contrato>()
+        .HasOne(c => c.Agencia)           // Contrato has one Agencia
+        .WithMany(a => a.Contratos)       // Agencia can have many Contratos
+        .HasForeignKey(c => c.AgenciaId)  // Foreign key property in Contrato
+        .IsRequired(false);               // Make the relationship optional
+
+        base.OnModelCreating(modelBuilder);
     }
-    public Microsoft.EntityFrameworkCore.DbSet<Contrato> Contratos { get; set; }
-    public Microsoft.EntityFrameworkCore.DbSet<Agencia> Agencias { get; set; }
+
+       
+
+    
+    public Microsoft.EntityFrameworkCore.DbSet<Contrato> Contrato { get; set; }
+    public Microsoft.EntityFrameworkCore.DbSet<Agencia> Agencia { get; set; }
+    public Microsoft.EntityFrameworkCore.DbSet<Locutor> Locutor { get; set; }
+    public Microsoft.EntityFrameworkCore.DbSet<FechaDePago> FechasDePago { get; set; }
 
 }

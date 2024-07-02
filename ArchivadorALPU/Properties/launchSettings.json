@@ -12,8 +12,8 @@
     "ArchivadorALPU": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "swagger",
+      //"launchBrowser": true,
+      //"launchUrl": "swagger",
       "applicationUrl": "https://localhost:7200;http://localhost:5183",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

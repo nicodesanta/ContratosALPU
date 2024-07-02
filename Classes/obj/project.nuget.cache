@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DKiMEYbiYUhTJ/46dyExHiHQyA9A3/E/JuRVM015inHdf/ytNMX7c6dwQiItaMwf7hNP889NJqlZrhfqWir/pQ==",
+  "dgSpecHash": "sPRPhbV4hlbuIlXFZA0wM5bSTKOXtYllI4G72+UYTtM0PMWXpm7go1UPflauRh/bDmOEgVBqzXlcyI6PRTdpcA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nico_\\localsource\\ArchivadorALPU\\Classes\\Classes.csproj",
+  "projectFilePath": "C:\\Users\\nico_\\source\\repos\\ContratosALPU\\Classes\\Classes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nico_\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\nico_\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
