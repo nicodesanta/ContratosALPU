@@ -63,7 +63,7 @@ internal class Program
             app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
+        app.UseForwardedHeaders();
         app.UseCors(corsPolicyName);
         app.UseRouting();
         app.UseStaticFiles();

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "x43N1fTFhWacIn5Rgy7vnxNeijyljg6XD0O0DAvM7RaVPehpPgdejSK+yM4SFUskJO+otjgdh8IM5xsre+gxEw==",
+  "dgSpecHash": "ZNIliD1xeX2hCjY6ao+zzs6OlfQ7uA8kxLrZkqrpmeCXAmJSFg9+VzRDhajR9bZnqaquMAgjDIny52iaBg6vbQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\nico_\\source\\repos\\ContratosALPU\\ArchivadorALPU\\ArchivadorALPU.csproj",
   "expectedPackageFiles": [
@@ -160,8 +160,7 @@
     "C:\\Users\\nico_\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\nico_\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\nico_\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\nico_\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512",
-    "C:\\Users\\nico_\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.24\\microsoft.netcore.app.crossgen2.win-x64.6.0.24.nupkg.sha512"
+    "C:\\Users\\nico_\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512"
   ],
   "logs": []
 }
