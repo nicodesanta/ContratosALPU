@@ -15,6 +15,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        Console.WriteLine("Up");
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddMvc(options =>
@@ -41,6 +42,7 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddScoped<IContratoRepository, ContratoRepository>();
+        builder.Services.AddScoped<IRetencionesRepository, RetencionesRepository>();
         builder.Services.AddScoped<ILocutorRepository, LocutorRespository>();
         builder.Services.AddScoped<IAgenciaRepository, AgenciaRepository>();
         builder.Services.AddScoped<IPagosRepository, PagosRepository>();
@@ -48,6 +50,8 @@ internal class Program
 
         builder.Services.AddDbContext<Context>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+        builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
         var app = builder.Build();
 

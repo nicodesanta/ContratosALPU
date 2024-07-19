@@ -10,6 +10,7 @@ import SubirContratos from "./components/SubirContratos";
 import Agregar from "./components/Agregar";
 import TextField from "@mui/material/TextField";
 import DetalleIva from "./components/DetalleIva";
+import Archivador from "./components/Archivador";
 export default function App() {
   const [resultados, setResultados] = useState([
     { Nombre: "The Godfather", id: 1 },
@@ -87,6 +88,11 @@ export default function App() {
                 Agregar
               </a>
             </li>
+            <li className="nav-item active">
+              <a className="nav-link" href="/editar">
+                Editar
+              </a>
+            </li>
           </ul>
           {resultados && (
             <form className="form-inline my-2 my-lg-0">
@@ -130,6 +136,7 @@ export default function App() {
             <Route path="subirContratos" element={<SubirContratos />} />
             <Route path="agregar" element={<Agregar />} />
             <Route path="detalle" element={<DetalleIva />} />
+            <Route path="editar" element={<Archivador />} />
           </Route>
         </Routes>
       </BrowserRouter>

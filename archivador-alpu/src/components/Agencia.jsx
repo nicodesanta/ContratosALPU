@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFileExcel } from "@fortawesome/free-solid-svg-icons";
 import { ExcelExport } from '@progress/kendo-react-excel-export';
+import * as dayjs from 'dayjs'
 library.add(faFileExcel);
 
 const Agencia = () => {
@@ -23,15 +24,39 @@ const Agencia = () => {
     const { id } = useParams();
 
     const columnsContratos = [
-        { field: "fecha", headerName: "Fecha", flex: 1 },
+        {
+            field: "fecha", headerName: "Fecha", flex: 1, valueFormatter: (params) => {
+                if (params.value != null) {
+                    return dayjs(params.value).format('DD/MM/YYYY');
+                } else {
+                    return ''; // Return an empty string or any default value you prefer
+                }
+            }
+        },
         { field: "nombreAgencia", headerName: "Agencia", flex: 1 },
         { field: "rutAgencia", headerName: "RUT", flex: 1 },
         { field: "nombreLocutor", headerName: "Locutor", flex: 1 },
         { field: "numeroContrato", headerName: "Numero de contrato", flex: 1 },
         { field: "monto", headerName: "Monto", flex: 1 },
         { field: "estado", headerName: "Estado", flex: 1 },
-        { field: "fechaDeCobro", headerName: "Cobrado el", flex: 1 },
-        { field: "fechaDeFactura", headerName: "Fecha Factura", flex: 1 },
+        {
+            field: "fechaDeCobro", headerName: "Cobrado el", flex: 1, valueFormatter: (params) => {
+                if (params.value != null) {
+                    return dayjs(params.value).format('DD/MM/YYYY');
+                } else {
+                    return ''; // Return an empty string or any default value you prefer
+                }
+            }
+        },
+        {
+            field: "fechaDeFactura", headerName: "Fecha Factura", flex: 1, valueFormatter: (params) => {
+                if (params.value != null) {
+                    return dayjs(params.value).format('DD/MM/YYYY');
+                } else {
+                    return ''; // Return an empty string or any default value you prefer
+                }
+            }
+        },
         { field: "numeroFactura", headerName: "Num. Factura", flex: 1 },
     ];
 
@@ -105,17 +130,6 @@ const Agencia = () => {
                 <h1 className="whiteFont">{contratos[0]?.nombreAgencia}</h1>
                 <input type="text" onChange={e => handleRutChange(e.target.value)} defaultValue={agencia?.rut} />
                 <Button variant="primary" onClick={handleEditar}>Editar</Button>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    style={{ marginLeft: 16 }}
-                    onClick={() => {
-                        excelExport()
-                    }}
-                >
-                    <FontAwesomeIcon icon="fas fa-file-excel" />
-                </Button>
             </div>
             <div>
                 <div className="" style={{ width: "80vw", height: "100%" }}>
@@ -132,7 +146,8 @@ const Agencia = () => {
                             }}
                             pageSizeOptions={[5, 10, 50, 100]}
                             slots={{ toolbar: GridToolbar }}
-                        /></ExcelExport>
+                        />
+                    </ExcelExport>
 
                 </div>
             </div>

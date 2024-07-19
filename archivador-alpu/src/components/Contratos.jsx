@@ -1,16 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faDollar, faFileInvoice } from "@fortawesome/free-solid-svg-icons";
+import { faDollar, faFileInvoice, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { ExcelExport } from '@progress/kendo-react-excel-export';
 import * as dayjs from 'dayjs'
 
-library.add(faDollar, faFileInvoice);
+library.add(faDollar, faFileInvoice, faTrash);
 
 const Contratos = () => {
     const [contratos, setContratos] = useState([]);
@@ -18,11 +19,13 @@ const Contratos = () => {
     const [open, setOpen] = React.useState(false);
     const [openFacturado, setOpenFacturado] = React.useState(false);
     const [openCobrado, setOpenCobrado] = React.useState(false);
+    const [openDeleteModal, setOpenDeleteModal] = React.useState(false);
 
     const rows = contratos;
     const handleClose = () => setOpen(false);
     const handleCloseFacturador = () => setOpenFacturado(false);
     const handleCloseCobrado = () => setOpenCobrado(false);
+    const handleCloseDeleteModal = () => setOpenDeleteModal(false);
 
     const fecha = useRef("");
     const numFactura = useRef("");
@@ -30,6 +33,14 @@ const Contratos = () => {
     const fechaCobrado = useRef("");
 
     const navigate = useNavigate();
+
+    const _export = React.useRef(null);
+
+    const excelExport = () => {
+        if (_export.current !== null) {
+            _export.current.save(contratos);
+        }
+    };
 
     const [rowSelectionModel, setRowSelectionModel] = React.useState([]);
 
@@ -41,6 +52,9 @@ const Contratos = () => {
     };
     const handleOpenCobrado = () => {
         setOpenCobrado(true);
+    };
+    const handleOpenDeleteModal = () => {
+        setOpenDeleteModal(true);
     };
 
     const [checked, setChecked] = React.useState(false);
@@ -86,6 +100,17 @@ const Contratos = () => {
                     }}
                 >
                     <FontAwesomeIcon icon="fas fa-dollar" />
+                </Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+
+                    style={{ marginLeft: 5 }}
+                    onClick={() => {
+                        handleOpenDeleteModal();
+                    }}
+                >
+                    <FontAwesomeIcon icon="fas fa-trash" />
                 </Button>
             </strong>
         );
@@ -215,6 +240,21 @@ const Contratos = () => {
                 console.error("There was a problem with the fetch operation:", error);
             });
     };
+    const deleteContrato = () => {
+        fetch(
+            `https://localhost:7200/Archivador/DeleteContrato/${rowSelectionModel[0]}`,
+            {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+            }
+        )
+            .then((res) => {
+                CallGetContratos();
+            })
+            .catch((error) => {
+                console.error("There was a problem with the fetch operation:", error);
+            });
+    };
     const setContratoCobrado = () => {
         if (fechaCobrado.current === "") return;
         fetch(
@@ -232,6 +272,7 @@ const Contratos = () => {
                 console.error("There was a problem with the fetch operation:", error);
             });
     };
+
 
     const handleTableClick = (params) => {
         switch (params.field) {
@@ -266,25 +307,29 @@ const Contratos = () => {
             <div className="d-flex text-end">
 
             </div>
+
             <div className="d-flex justify-content-center mt-5 text-center">
                 <div className="" style={{ width: "100vw", height: "100%" }}>
-                    <DataGrid
-                        checkboxSelection
-                        rows={rows}
-                        className="tableStyle"
-                        columns={columns}
-                        initialState={{
-                            pagination: {
-                                paginationModel: { page: 0, pageSize: 30 },
-                            },
-                        }}
-                        onCellClick={handleTableClick}
-                        pageSizeOptions={[5, 10, 20, 30]}
-                        onRowSelectionModelChange={(newRowSelectionModel) => {
-                            setRowSelectionModel(newRowSelectionModel);
-                        }}
-                        rowSelectionModel={rowSelectionModel}
-                    />
+                    <ExcelExport data={contratos} ref={_export}>
+                        <DataGrid
+                            checkboxSelection
+                            rows={rows}
+                            className="tableStyle"
+                            columns={columns}
+                            initialState={{
+                                pagination: {
+                                    paginationModel: { page: 0, pageSize: 30 },
+                                },
+                            }}
+                            onCellClick={handleTableClick}
+                            pageSizeOptions={[5, 10, 20, 30]}
+                            onRowSelectionModelChange={(newRowSelectionModel) => {
+                                setRowSelectionModel(newRowSelectionModel);
+                            }}
+                            rowSelectionModel={rowSelectionModel}
+                            slots={{ toolbar: GridToolbar }}
+                        />
+                    </ExcelExport>
                 </div>
                 <Modal
                     open={open}
@@ -399,6 +444,44 @@ const Contratos = () => {
                                 Confirmar
                             </Button>
                             <FontAwesomeIcon icon="fa-solid fa-dollar-sign" />
+                        </Typography>
+                    </Box>
+                </Modal>
+                <Modal
+                    open={openDeleteModal}
+                    onClose={handleCloseDeleteModal}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <div className="">
+                            <Typography id="modal-modal-title" variant="h6" component="h2">
+                                Eliminar contrato
+                            </Typography>
+                        </div>
+                        <Typography id="modal-modal-description" sx={{ mt: 2, gap: 2 }}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="small"
+
+                                onClick={() => {
+                                    handleCloseDeleteModal();
+                                }}
+                            >
+                                No
+                            </Button>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                size="small"
+                                style={{ marginLeft: 25 }}
+                                onClick={() => {
+                                    deleteContrato();
+                                }}
+                            >
+                                Si
+                            </Button>
                         </Typography>
                     </Box>
                 </Modal>

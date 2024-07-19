@@ -96,3 +96,11 @@ C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\Irony.
 C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\SixLabors.Fonts.dll
 C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\System.IO.Packaging.dll
 C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\XLParser.dll
+C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\Amazon.Lambda.APIGatewayEvents.dll
+C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\Amazon.Lambda.ApplicationLoadBalancerEvents.dll
+C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\Amazon.Lambda.AspNetCoreServer.dll
+C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\Amazon.Lambda.AspNetCoreServer.Hosting.dll
+C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\Amazon.Lambda.Core.dll
+C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\Amazon.Lambda.Logging.AspNetCore.dll
+C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\Amazon.Lambda.RuntimeSupport.dll
+C:\Users\nico_\source\repos\ContratosALPU\ArchivadorALPU\bin\Debug\net6.0\Amazon.Lambda.Serialization.SystemTextJson.dll

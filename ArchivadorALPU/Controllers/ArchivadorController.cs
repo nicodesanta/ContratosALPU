@@ -230,6 +230,34 @@ namespace ArchivadorALPU.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
+
+        [HttpGet, Route("BuscarContrato/{numContrato}")]
+        public async Task<ActionResult<Contrato>> BuscarContrato(int numContrato)
+        {
+            ContratoDto contrato = this.contratoRepository.GetContratoByNumero(numContrato);
+
+            return Ok(contrato);
+
+        }
+
+        [HttpDelete, Route("DeleteContrato/{id}")]
+        public async Task<ActionResult> DeleteContrato(int id)
+        {
+            try
+            {
+                this.contratoRepository.DeleteContrato(id);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+            
+
+           
+
+        }
     }
 }
 

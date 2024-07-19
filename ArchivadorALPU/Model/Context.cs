@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Diagnostics.Metrics;
 using System.Reflection.Metadata;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
@@ -19,8 +18,10 @@ public class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=alpuserver;Trusted_Connection=True");
         
+        //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=alpuserver;Trusted_Connection=True");
+        optionsBuilder.UseSqlServer(@"Data Source=alpu-database.c78kwwg4oqir.us-east-1.rds.amazonaws.com;Database=alpuServer; User=admin; Password=adminAlpu1234$; TrustServerCertificate=True");
+
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -37,9 +38,9 @@ public class Context : DbContext
        
 
     
-    public Microsoft.EntityFrameworkCore.DbSet<Contrato> Contrato { get; set; }
-    public Microsoft.EntityFrameworkCore.DbSet<Agencia> Agencia { get; set; }
-    public Microsoft.EntityFrameworkCore.DbSet<Locutor> Locutor { get; set; }
-    public Microsoft.EntityFrameworkCore.DbSet<FechaDePago> FechasDePago { get; set; }
-
+    public DbSet<Contrato> Contrato { get; set; }
+    public DbSet<Agencia> Agencia { get; set; }
+    public DbSet<Locutor> Locutor { get; set; }
+    public DbSet<FechaDePago> FechasDePago { get; set; }
+    public DbSet<Retencion> Retenciones { get; set;}
 }

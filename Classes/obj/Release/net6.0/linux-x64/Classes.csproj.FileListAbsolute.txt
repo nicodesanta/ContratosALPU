@@ -1,0 +1,14 @@
+C:\Users\nico_\source\repos\ContratosALPU\Classes\bin\Release\net6.0\linux-x64\Classes.deps.json
+C:\Users\nico_\source\repos\ContratosALPU\Classes\bin\Release\net6.0\linux-x64\Classes.runtimeconfig.json
+C:\Users\nico_\source\repos\ContratosALPU\Classes\bin\Release\net6.0\linux-x64\Classes.dll
+C:\Users\nico_\source\repos\ContratosALPU\Classes\bin\Release\net6.0\linux-x64\Classes.pdb
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\Classes.csproj.AssemblyReference.cache
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\Classes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\Classes.AssemblyInfoInputs.cache
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\Classes.AssemblyInfo.cs
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\Classes.csproj.CoreCompileInputs.cache
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\Classes.dll
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\refint\Classes.dll
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\Classes.pdb
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\Classes.genruntimeconfig.cache
+C:\Users\nico_\source\repos\ContratosALPU\Classes\obj\Release\net6.0\linux-x64\ref\Classes.dll

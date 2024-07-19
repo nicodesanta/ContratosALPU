@@ -12,11 +12,13 @@ public class UsuariosController : ControllerBase
 {
     private readonly ILocutorRepository locutorRepository;
     private readonly IAgenciaRepository agenciaRepository;
+    private readonly IRetencionesRepository retencionRepository;
 
-    public UsuariosController(ILocutorRepository _locutorRepository, IAgenciaRepository _agenciaRepository)
+    public UsuariosController(ILocutorRepository _locutorRepository, IAgenciaRepository _agenciaRepository, IRetencionesRepository _retencionRepository)
     {
         this.locutorRepository = _locutorRepository;
         this.agenciaRepository = _agenciaRepository;
+        this.retencionRepository = _retencionRepository;
     }
 
     // POST: ArchivadorController/Create
@@ -169,6 +171,57 @@ public class UsuariosController : ControllerBase
         {
             Locutor locutorAEditar = this.locutorRepository.EditLocutor(locutor);
             return Ok(locutorAEditar);
+        }
+        catch (Exception ex)
+        {
+            // Log the exception or handle it appropriately
+            // You might also return a specific error response to the client
+            return StatusCode(500, $"An error occurred: {ex.Message}");
+        }
+    }
+
+    [HttpPost, Route("AddRetencion")]
+
+    public async Task<ActionResult<Agencia>> AddRetencion([FromBody] Retencion retencion)
+    {
+        try
+        {
+            var result = this.retencionRepository.Add(retencion);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            // Log the exception or handle it appropriately
+            // You might also return a specific error response to the client
+            return StatusCode(500, $"An error occurred: {ex.Message}");
+        }
+    }
+
+    [HttpDelete, Route("DeleteRetencion/{idRetencion}")]
+
+    public async Task<ActionResult<Agencia>> DeleteRetencion(int idRetencion)
+    {
+        try
+        {
+            this.retencionRepository.Delete(idRetencion);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception or handle it appropriately
+            // You might also return a specific error response to the client
+            return StatusCode(500, $"An error occurred: {ex.Message}");
+        }
+    }
+
+    [HttpGet, Route("GetRetenciones/{idLocutor}")]
+
+    public async Task<ActionResult<Agencia>> GetRetenciones(int idLocutor)
+    {
+        try
+        {
+            var result = this.retencionRepository.GetRetencionesLocutor(idLocutor);
+            return Ok(result);
         }
         catch (Exception ex)
         {

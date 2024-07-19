@@ -1,12 +1,18 @@
 import React, { useRef, useEffect, useState } from "react";
 import Select from "react-select";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+library.add(faMagnifyingGlass);
+
 
 const Archivador = () => {
   const fecha = useRef("");
-  const locutor = useRef("");
   const monto = useRef(0);
-  const agencia = useRef("");
+  const buscarContrato = useRef("");
   const numero = useRef("");
+  const detalle = useRef("");
   const [locutores, setLocutores] = useState([]);
   const [agencias, setAgencias] = useState([]);
   const [selectRefAgencia, setAgencia] = useState([]);
@@ -32,6 +38,32 @@ const Archivador = () => {
       });
   }, []);
 
+  const handleBuscarContrato = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    fetch(`https://localhost:7200/Archivador/BuscarContrato/${buscarContrato.current.value}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        fecha.current.value = data.fecha;
+        monto.current.value = data.monto;
+        detalle.current.value = detalle.monto;
+        setAgencia(data.rutAgencia);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  };
+
+
   const handleChangeAgencia = (selectedOption) => {
     setAgencia(selectedOption);
   };
@@ -48,6 +80,7 @@ const Archivador = () => {
       locutorId: selectRefLocutor.id,
       monto: monto.current.value,
       numeroContrato: numero.current.value,
+      DetalleContrato: detalle.current.value,
     };
 
     fetch("https://localhost:7200/Archivador/AgregarContrato", {
@@ -81,6 +114,21 @@ const Archivador = () => {
         className="d-flex justify-content-center align-items-center w-100 mt-5"
         style={{ flexDirection: "column" }}
       >
+        <div className="d-flex justify-content-center align-items-center mb-3 w-25">
+          <input
+            type="text"
+            ref={buscarContrato}
+            className="form-control"
+            placeholder="Buscar"
+          />
+          <button
+            type="submit"
+            className="btn btn-primary ml-3"
+            onClick={handleBuscarContrato}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+          </button>
+        </div>
         <div className="d-flex justify-content-center align-items-center mb-3 w-25">
           <div>
             <span>Fecha</span>
@@ -132,6 +180,17 @@ const Archivador = () => {
         </div>
         <div className="d-flex justify-content-center align-items-center mb-3 w-25">
           <div>
+            <span>Detalle</span>
+          </div>
+          <input
+            type="text"
+            ref={detalle}
+            className="form-control"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div className="d-flex justify-content-center align-items-center mb-3 w-25">
+          <div>
             <span>Agencia</span>
           </div>
           <Select
@@ -145,13 +204,22 @@ const Archivador = () => {
             +
           </button>
         </div>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={handleSubmit}
-        >
-          Agregar contrato
-        </button>
+        <div className="d-flex gap-2">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={handleSubmit}
+          >
+            Agregar contrato
+          </button>
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={handleSubmit}
+          >
+            Editar contrato
+          </button>
+        </div>
       </div>
     </div>
   );

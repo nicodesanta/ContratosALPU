@@ -79,6 +79,8 @@ namespace ArchivadorALPU.Repositories
                     FechaDeCobro = item.FechaDeCobro,
                     NumeroFactura = item.NumeroFactura,
                     NumeroContrato = item.NumeroContrato,
+                    DetalleContrato = item.DetalleContrato,
+                    Moneda = item.Moneda
                 };
                 contratos.Add(nuevoContrato);
             }
@@ -94,8 +96,30 @@ namespace ArchivadorALPU.Repositories
             }
             return contrato;
         }
+        public ContratoDto GetContratoByNumero(int numContrato)
+        {
+            ContratoDto contrato = null;
+            Contrato finded = context.Contrato.Where(c => c.NumeroContrato == numContrato).Include(c => c.Agencia).FirstOrDefault();
+            if (finded != null)
+            {
+             contrato = this.MapContrato(finded);
+            }
+           
+            
+            return contrato;
+        }
 
-       private ContratoDto MapContrato(Contrato contrato)
+        public void DeleteContrato(int id)
+        {
+            Contrato finded = context.Contrato.Where(c => c.Id == id).FirstOrDefault();
+            if (finded != null)
+            {
+               context.Contrato.Remove(finded); 
+            }
+            context.SaveChanges();
+        }
+
+        private ContratoDto MapContrato(Contrato contrato)
         {
             var contratoMapped = new ContratoDto
             {
@@ -113,6 +137,8 @@ namespace ArchivadorALPU.Repositories
                 NumeroContrato = contrato.NumeroContrato,
                 FechaDeFactura = contrato.FechaFacturado,
                 NumeroFactura = contrato.NumeroFactura,
+                DetalleContrato = contrato.DetalleContrato,
+                Moneda = contrato.Moneda
             };
             return contratoMapped;
         }
@@ -158,6 +184,7 @@ namespace ArchivadorALPU.Repositories
             nuevoContrato.NumeroContrato = contrato.NumeroContrato;
             nuevoContrato.Monto = contrato.Monto;
             nuevoContrato.Fecha = contrato.Fecha;
+            nuevoContrato.DetalleContrato = contrato.DetalleContrato;
             
             if (!String.IsNullOrEmpty(contrato.NombreLocutor))
             {

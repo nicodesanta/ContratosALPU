@@ -14,6 +14,8 @@ namespace Classes
         public decimal Monto { get; set; }
         public int Descuento { get; set; }
         public string? Estado { get; set; }
+        public string? Moneda { get; set; }
+        public string? DetalleContrato { get; set; }
         public DateTime? FechaDeCobro { get; set; }
         public DateTime? FechaDeFactura { get; set; }
         public bool? FacturaPropia { get; set; }

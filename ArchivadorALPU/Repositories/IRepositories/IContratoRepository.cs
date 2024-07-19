@@ -8,6 +8,8 @@ namespace ArchivadorALPU.Repositories.IRepositories
         void AddContratoStrings(ContratoDto contrato);
         public List<ContratoDto> GetContratos();
         public ContratoDto GetContratoById(int id);
+        ContratoDto GetContratoByNumero(int numContrato);
+        void DeleteContrato(int id);
         public List<ContratoDto> GetContratosIds(List<int> ids);
         public List<ContratoDto> GetContratosFacturadosEnElMes(int mes);
         public List<ContratoDto> GetContratosByLocutor(Locutor locutor);

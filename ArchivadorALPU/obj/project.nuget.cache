@@ -1,9 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "cqojYBFH62Yv+9p6Q74VE+J9pC3FEAIs1DdtAefT26+SXsafdCnVga9SlNULAI+9OdQBWIAvPiazjglXHo7jdQ==",
+  "dgSpecHash": "x43N1fTFhWacIn5Rgy7vnxNeijyljg6XD0O0DAvM7RaVPehpPgdejSK+yM4SFUskJO+otjgdh8IM5xsre+gxEw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nico_\\source\\repos\\ContratosALPU\\ArchivadorALPU\\ArchivadorALPU.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nico_\\.nuget\\packages\\amazon.lambda.apigatewayevents\\2.4.1\\amazon.lambda.apigatewayevents.2.4.1.nupkg.sha512",
+    "C:\\Users\\nico_\\.nuget\\packages\\amazon.lambda.applicationloadbalancerevents\\2.1.0\\amazon.lambda.applicationloadbalancerevents.2.1.0.nupkg.sha512",
+    "C:\\Users\\nico_\\.nuget\\packages\\amazon.lambda.aspnetcoreserver\\7.2.0\\amazon.lambda.aspnetcoreserver.7.2.0.nupkg.sha512",
+    "C:\\Users\\nico_\\.nuget\\packages\\amazon.lambda.aspnetcoreserver.hosting\\1.3.1\\amazon.lambda.aspnetcoreserver.hosting.1.3.1.nupkg.sha512",
+    "C:\\Users\\nico_\\.nuget\\packages\\amazon.lambda.core\\2.2.0\\amazon.lambda.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\nico_\\.nuget\\packages\\amazon.lambda.logging.aspnetcore\\3.1.0\\amazon.lambda.logging.aspnetcore.3.1.0.nupkg.sha512",
+    "C:\\Users\\nico_\\.nuget\\packages\\amazon.lambda.runtimesupport\\1.8.1\\amazon.lambda.runtimesupport.1.8.1.nupkg.sha512",
+    "C:\\Users\\nico_\\.nuget\\packages\\amazon.lambda.serialization.systemtextjson\\2.4.1\\amazon.lambda.serialization.systemtextjson.2.4.1.nupkg.sha512",
     "C:\\Users\\nico_\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\nico_\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\nico_\\.nuget\\packages\\closedxml\\0.102.2\\closedxml.0.102.2.nupkg.sha512",
@@ -152,7 +160,8 @@
     "C:\\Users\\nico_\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\nico_\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\nico_\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\nico_\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512"
+    "C:\\Users\\nico_\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512",
+    "C:\\Users\\nico_\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.24\\microsoft.netcore.app.crossgen2.win-x64.6.0.24.nupkg.sha512"
   ],
   "logs": []
 }
