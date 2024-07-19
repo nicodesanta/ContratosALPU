@@ -1,0 +1,20 @@
+
+{
+    "region" : "us-east-1",
+    "configuration" : "Debug",
+    "framework"     : "net6.0",
+    "self-contained" : false,
+    "application"    : "ArchivadorALPU",
+    "environment"    : "contratosalpu",
+    "enable-xray"    : false,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-062e6a24bb42d3db3\";\"aws:ec2:vpc,Subnets\"=\"subnet-07cb97510cf8e1f7f\"",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.8.0 running .NET Core",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "contratosalpu",
+    "instance-type"        : "t3a.medium",
+    "key-pair"             : "",
+    "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
+    "service-role"         : "aws-elasticbeanstalk-service-role",
+    "proxy-server"         : "nginx"
+}

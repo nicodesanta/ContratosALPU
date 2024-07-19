@@ -178,7 +178,7 @@ const Contratos = () => {
 
 
     const CallGetContratos = () => {
-        fetch("https://localhost:7200/Archivador/GetContratos", {
+        fetch("http://contratosalpu.us-east-1.elasticbeanstalk.com/Archivador/GetContratos", {
             method: "GET",
             headers: { "Content-Type": "application/json" }, // Convert object to JSON string
         })

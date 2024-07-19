@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Contratos from "./components/Contratos";
@@ -126,7 +126,7 @@ export default function App() {
           )}
         </div>
       </nav>
-      <BrowserRouter>
+      <HashRouter basename="/">
         <Routes>
           <Route path="/">
             <Route index element={<Contratos />} />
@@ -139,7 +139,7 @@ export default function App() {
             <Route path="editar" element={<Archivador />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

@@ -31,6 +31,7 @@ internal class Program
             options.AddPolicy(corsPolicyName, policy =>
             {
                 policy.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+                policy.WithOrigins("http://alpu-frontend.s3-website-us-east-1.amazonaws.com").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
             });
         });
 
